@@ -1,0 +1,16 @@
+.auth-link {
+    text-decoration: none;
+}
+.auth {
+    background-color: #E84A5F;
+    width: 100px;
+    text-align: center;
+    height: 35px;
+    padding: 5px;
+    border-radius: 17px;
+    color: #2A363B;
+}
+
+.navbar {
+    background-color: #355C7D;
+}

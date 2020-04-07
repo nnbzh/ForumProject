@@ -1,0 +1,15 @@
+.forum-col {
+    min-width: 16em;
+}
+
+.last-post-col {
+    min-width: 12em;
+}
+
+.forum-category {
+    background-color: #6C5B7B;
+}
+
+.table {
+    background-color: #fff;
+}
