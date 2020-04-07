@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "forum-project": {
@@ -124,6 +124,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "forum-project"
+    }
+  },
+  "defaultProject": "forum-project",
+  "cli": {
+    "analytics": "7628382f-412d-4d21-92f2-b5fdc65f0f19"
+  }
 }
