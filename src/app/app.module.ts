@@ -16,7 +16,7 @@ import { ForumComponent } from './forum/forum.component';
     HeaderComponent,
     FooterComponent,
     MainComponent,
-    ForumComponent
+    ForumComponent,
     MainComponent,
     LoginComponent
   ],

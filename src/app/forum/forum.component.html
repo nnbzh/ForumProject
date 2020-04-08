@@ -5,7 +5,7 @@
     <span class="breadcrumb-item active">Forum name</span>
   </nav>
   <div class="row">
-    <div class="col-md-9">
+    <div class="col-12">
       <h2 class="h4 text-white bg-info mb-0 p-4 rounded-top">Forum name</h2>
       <table class="table table-striped table-bordered table-responsive-lg">
         <thead class="thead-light">
@@ -16,178 +16,25 @@
           <th scope="col" class="last-post-col">Last post</th>
         </tr>
         </thead>
-        <tbody>
+
+        <tbody *ngFor="let topic of topics">
         <tr>
           <td>
-            <h3 class="h6"><span class="badge badge-primary">7 unread</span> <a href="post.html">Forum post title with a complex and long question</a></h3>
+            <h3 class="h6"><span class="badge badge-primary" *ngIf="topic.unread != 0">{{ topic.unread }} unread</span>
+              <a href="/forum">{{ topic.title }}</a></h3>
             <div class="small">Go to page: <a href="#0">1</a>, <a href="#0">2</a>, <a href="#0">3</a> … <a href="#0">7</a>, <a href="#0">8</a>, <a href="#0">9</a></div>
           </td>
           <td>
-            <div>by <a href="#">Author name</a></div>
-            <div>03 Apr 2017, 13:46</div>
+            <div>by <a href="#">{{ topic.author }}</a></div>
+            <div>{{ topic.date | date:'dd MMM y, mm:ss' }}</div>
           </td>
           <td>
-            <div>5 replies</div>
+            <div>{{ topic.replies }} replies</div>
             <div>179 views</div>
           </td>
           <td>
-            <div>by <a href="#">Author name</a></div>
-            <div>05 Apr 2017, 20:07</div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <h3 class="h6"><span class="badge badge-primary">4 unread</span> <a href="post.html">Forum post title with a complex and long question</a></h3>
-            <div class="small">Go to page: <a href="#0">1</a>, <a href="#0">2</a>, <a href="#0">3</a> … <a href="#0">7</a>, <a href="#0">8</a>, <a href="#0">9</a></div>
-          </td>
-          <td>
-            <div>by <a href="#">Author name</a></div>
-            <div>03 Apr 2017, 13:46</div>
-          </td>
-          <td>
-            <div>5 replies</div>
-            <div>179 views</div>
-          </td>
-          <td>
-            <div>by <a href="#">Author name</a></div>
-            <div>05 Apr 2017, 20:07</div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <h3 class="h6"><span class="badge badge-primary">1 unread</span> <a href="post.html">Forum post title with a complex and long question</a></h3>
-            <div class="small">Go to page: <a href="#0">1</a>, <a href="#0">2</a>, <a href="#0">3</a> … <a href="#0">7</a>, <a href="#0">8</a>, <a href="#0">9</a></div>
-          </td>
-          <td>
-            <div>by <a href="#">Author name</a></div>
-            <div>03 Apr 2017, 13:46</div>
-          </td>
-          <td>
-            <div>5 replies</div>
-            <div>179 views</div>
-          </td>
-          <td>
-            <div>by <a href="#">Author name</a></div>
-            <div>05 Apr 2017, 20:07</div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <h3 class="h6"><a href="post.html">Forum post title with a complex and long question</a></h3>
-          </td>
-          <td>
-            <div>by <a href="#">Author name</a></div>
-            <div>03 Apr 2017, 13:46</div>
-          </td>
-          <td>
-            <div>5 replies</div>
-            <div>179 views</div>
-          </td>
-          <td>
-            <div>by <a href="#">Author name</a></div>
-            <div>05 Apr 2017, 20:07</div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <h3 class="h6"><a href="post.html">Forum post title with a complex and long question</a></h3>
-          </td>
-          <td>
-            <div>by <a href="#">Author name</a></div>
-            <div>03 Apr 2017, 13:46</div>
-          </td>
-          <td>
-            <div>5 replies</div>
-            <div>179 views</div>
-          </td>
-          <td>
-            <div>by <a href="#">Author name</a></div>
-            <div>05 Apr 2017, 20:07</div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <h3 class="h6"><a href="post.html">Forum post title with a complex and long question</a></h3>
-          </td>
-          <td>
-            <div>by <a href="#">Author name</a></div>
-            <div>03 Apr 2017, 13:46</div>
-          </td>
-          <td>
-            <div>5 replies</div>
-            <div>179 views</div>
-          </td>
-          <td>
-            <div>by <a href="#">Author name</a></div>
-            <div>05 Apr 2017, 20:07</div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <h3 class="h6"><a href="post.html">Forum post title with a complex and long question</a></h3>
-          </td>
-          <td>
-            <div>by <a href="#">Author name</a></div>
-            <div>03 Apr 2017, 13:46</div>
-          </td>
-          <td>
-            <div>5 replies</div>
-            <div>179 views</div>
-          </td>
-          <td>
-            <div>by <a href="#">Author name</a></div>
-            <div>05 Apr 2017, 20:07</div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <h3 class="h6"><a href="post.html">Forum post title with a complex and long question</a></h3>
-          </td>
-          <td>
-            <div>by <a href="#">Author name</a></div>
-            <div>03 Apr 2017, 13:46</div>
-          </td>
-          <td>
-            <div>5 replies</div>
-            <div>179 views</div>
-          </td>
-          <td>
-            <div>by <a href="#">Author name</a></div>
-            <div>05 Apr 2017, 20:07</div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <h3 class="h6"><a href="post.html">Forum post title with a complex and long question</a></h3>
-          </td>
-          <td>
-            <div>by <a href="#">Author name</a></div>
-            <div>03 Apr 2017, 13:46</div>
-          </td>
-          <td>
-            <div>5 replies</div>
-            <div>179 views</div>
-          </td>
-          <td>
-            <div>by <a href="#">Author name</a></div>
-            <div>05 Apr 2017, 20:07</div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <h3 class="h6"><a href="post.html">Forum post title with a complex and long question</a></h3>
-          </td>
-          <td>
-            <div>by <a href="#">Author name</a></div>
-            <div>03 Apr 2017, 13:46</div>
-          </td>
-          <td>
-            <div>5 replies</div>
-            <div>179 views</div>
-          </td>
-          <td>
-            <div>by <a href="#">Author name</a></div>
-            <div>05 Apr 2017, 20:07</div>
+            <div>by <a href="#">{{ topic.last_author }}</a></div>
+            <div>{{ topic.last_date | date:'dd MMM y, mm:ss' }}</div>
           </td>
         </tr>
         </tbody>
@@ -206,7 +53,9 @@
         <li class="page-item"><a href="#" class="page-link">Next</a></li>
       </ul>
     </nav>
-    <form class="form-inline float-lg-left d-block d-sm-flex">
+
+    <!-- displaying and sorting is from here -->
+    <div class="form-inline float-lg-left d-block d-sm-flex">
       <div class="mb-2 mb-sm-0 mr-2">Display posts from previous:</div>
       <div class="form-group mr-2">
         <label class="sr-only" for="example-select-time">Time period</label>
@@ -237,7 +86,9 @@
         </select>
       </div>
       <button type="submit" class="btn btn-sm btn-primary">Go</button>
-    </form>
+    </div>
+    <!-- to here -->
+
   </div>
   <a href="new-topic.html" class="btn btn-lg btn-primary">New topic</a>
 </div>
