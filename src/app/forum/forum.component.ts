@@ -22,6 +22,7 @@ export class ForumComponent implements OnInit {
   ngOnInit(): void {
     this.getTopics();
     this.getDiscussions();
+    this.getDiscussionId();
   }
   getTopics(): void {
     const id = +this.route.snapshot.paramMap.get('id');
@@ -37,5 +38,9 @@ export class ForumComponent implements OnInit {
   }
   goBack(): void {
     this.location.back();
+  }
+  getDiscussionId() {
+    const id = +this.route.snapshot.paramMap.get('id');
+    return id;
   }
 }
