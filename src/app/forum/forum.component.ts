@@ -18,6 +18,18 @@ export class ForumComponent implements OnInit {
     this.getTopics();
     this.getDiscussionId();
   }
+
+  onChangeSortDirection(orderValue) {
+    const id = +this.route.snapshot.paramMap.get('id');
+    if (orderValue == "asc") {
+      this.topicService.getTopics(id)
+      .subscribe(topics => this.topics = topics.reverse());
+    } else {
+      this.topicService.getTopics(id)
+      .subscribe(topics => this.topics = topics.sort());       
+    }
+  }
+  
   getTopics(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.topicService.getTopics(id)

@@ -11,4 +11,12 @@ export interface Topic {
   last_date: Date;
   comment?: string;
   discusision_id: number;
+  comments?: Comment[];
+}
+
+export interface Comment {
+  id: number;
+  content: string;
+  author: string;
+  date:Date;
 }
