@@ -20,7 +20,7 @@
         <tbody *ngFor = "let discussion of discussions">
           <tr *ngIf = "discussion.category_id == category.id">
             <td>
-              <h3 class="h5 mb-0"><a href="overview-topics.html" class="text-uppercase">{{discussion.name}}</a></h3>
+              <h3 class="h5 mb-0"><a routerLink="/forum" class="text-uppercase" >{{discussion.name}}</a></h3>
               <p class="mb-0">{{discussion.description}}</p>
             </td>
             <td>

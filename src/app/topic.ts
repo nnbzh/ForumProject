@@ -9,4 +9,5 @@ export interface Topic {
   views: number;
   last_author: string;
   last_date: Date;
+  comment?: string;
 }
