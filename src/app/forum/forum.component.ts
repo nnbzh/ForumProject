@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { Topic } from '../topic';
 import { TopicService } from '../topic.service';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-forum',
@@ -13,16 +14,20 @@ export class ForumComponent implements OnInit {
   topics: Topic[];
   constructor(private topicService: TopicService,
               private route: ActivatedRoute) { }
-
   ngOnInit(): void {
     this.getTopics();
+    this.getDiscussionId();
   }
   getTopics(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.topicService.getTopics(id)
       .subscribe(topics => this.topics = topics);
   }
-  incrViewCount(id){
+  incrViewCount(id) {
     this.topicService.incrViewCount(id);
+  }
+  getDiscussionId() {
+    const id = +this.route.snapshot.paramMap.get('id');
+    return id;
   }
 }

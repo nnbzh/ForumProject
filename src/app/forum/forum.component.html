@@ -1,7 +1,7 @@
 <div class="container my-3">
   <nav class="breadcrumb">
-    <a href="index.html" class="breadcrumb-item">Board index</a>
-    <a href="overview-forum-category.html" class="breadcrumb-item">Forum category</a>
+    <a routerLink="/main" class="breadcrumb-item">Board index</a>
+    <a routerLink="/forum-category" class="breadcrumb-item">Forum category</a>
     <span class="breadcrumb-item active">Forum name</span>
   </nav>
   <div class="row">
@@ -20,8 +20,18 @@
         <tbody *ngFor="let topic of topics">
         <tr>
           <td>
-            <h3 class="h6"><span class="badge badge-primary" *ngIf="topic.unread != 0">{{ topic.unread }} unread</span>
-              <a routerLink="/forum" (click)="this.incrViewCount(topic.id)">{{ topic.title }}</a></h3>
+            <h3 class="h6">
+              <span class="badge badge-primary margin-r" *ngIf="topic.unread != 0">{{ topic.unread }} unread</span>
+              <a routerLink="/topic-detail/{{topic.id}}" (click)="this.incrViewCount(topic.id)" class="margin-r" >
+                <label>
+                  <input [(ngModel)]="topic.title" placeholder="Title"/>
+                </label>
+                <!-- {{ topic.title }} -->
+              </a>
+
+              <span><button class="btn btn-sm btn-outline-info">Edit title</button></span>
+            </h3>
+
             <div class="small">Go to page: <a href="#0">1</a>, <a href="#0">2</a>, <a href="#0">3</a> … <a href="#0">7</a>, <a href="#0">8</a>, <a href="#0">9</a></div>
           </td>
           <td>
@@ -42,6 +52,7 @@
     </div>
   </div>
   <div class="mb-3 clearfix">
+    <!--
     <nav aria-label="Navigate post pages" class="float-lg-right">
       <ul class="pagination pagination-sm mb-lg-0">
         <li class="page-item active"><a href="#" class="page-link">1 <span class="sr-only">(current)</span></a></li>
@@ -53,8 +64,9 @@
         <li class="page-item"><a href="#" class="page-link">Next</a></li>
       </ul>
     </nav>
-
+    -->
     <!-- displaying and sorting is from here -->
+    <form action="">
     <div class="form-inline float-lg-left d-block d-sm-flex">
       <div class="mb-2 mb-sm-0 mr-2">Display posts from previous:</div>
       <div class="form-group mr-2">
@@ -87,8 +99,9 @@
       </div>
       <button type="submit" class="btn btn-sm btn-primary">Go</button>
     </div>
+  </form>
     <!-- to here -->
 
   </div>
-  <a href="new-topic.html" class="btn btn-lg btn-primary">New topic</a>
+  <a routerLink="../{{this.getDiscussionId()}}/new-topic" class="btn btn-lg btn-primary">New topic</a>
 </div>
