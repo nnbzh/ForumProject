@@ -1,7 +1,7 @@
 export const categories = [
     {
       id: 1,
-      name: 'Programming Languages'
+      name: 'Programming Languages',
     },
     {
       id: 2,
