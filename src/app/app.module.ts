@@ -27,6 +27,8 @@ import { TopicDetailComponent } from './topic-detail/topic-detail.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    AppRoutingModule,
     FormsModule
   ],
   providers: [],

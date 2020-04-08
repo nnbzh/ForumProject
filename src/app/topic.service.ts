@@ -12,8 +12,8 @@ export class TopicService {
 
   topics = TOPICS;
 
-  getTopics(): Observable<Topic[]> {
-    return of(TOPICS);
+  getTopics(id: number): Observable<Topic[]> {
+    return of(TOPICS.filter(topic=>topic.discusision_id === id));
   }
   getTopic(id: number): Observable<Topic> {
     return of(TOPICS.find(topic => topic.id === id));

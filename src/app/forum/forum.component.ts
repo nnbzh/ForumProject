@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { Topic } from '../topic';
-import { TOPICS } from '../topics-list';
 import { TopicService } from '../topic.service';
 import * as $ from 'jquery';
 
@@ -19,7 +18,8 @@ export class ForumComponent implements OnInit {
     this.getTopics();
   }
   getTopics(): void {
-    this.topicService.getTopics()
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.topicService.getTopics(id)
       .subscribe(topics => this.topics = topics);
   }
   incrViewCount(id) {
