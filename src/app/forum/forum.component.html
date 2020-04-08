@@ -21,7 +21,7 @@
         <tr>
           <td>
             <h3 class="h6"><span class="badge badge-primary" *ngIf="topic.unread != 0">{{ topic.unread }} unread</span>
-              <a href="/forum">{{ topic.title }}</a></h3>
+              <a routerLink="/forum" (click)="this.incrViewCount(topic.id)">{{ topic.title }}</a></h3>
             <div class="small">Go to page: <a href="#0">1</a>, <a href="#0">2</a>, <a href="#0">3</a> … <a href="#0">7</a>, <a href="#0">8</a>, <a href="#0">9</a></div>
           </td>
           <td>
@@ -30,7 +30,7 @@
           </td>
           <td>
             <div>{{ topic.replies }} replies</div>
-            <div>179 views</div>
+            <div>{{ topic.views }} views</div>
           </td>
           <td>
             <div>by <a href="#">{{ topic.last_author }}</a></div>
