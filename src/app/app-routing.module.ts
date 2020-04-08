@@ -8,6 +8,7 @@ import {TopicDetailComponent} from './topic-detail/topic-detail.component';
 import { AuthComponent } from './auth/auth.component';
 
 
+
 const routes: Routes = [
   { path: '', redirectTo: '/main', pathMatch: 'full'},
   { path: 'main', component: MainComponent},
@@ -18,7 +19,7 @@ const routes: Routes = [
   { path: 'topic-detail/:id', component: TopicDetailComponent },
   { path: 'forum/:id', component: ForumComponent}
 ];
-
+ 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

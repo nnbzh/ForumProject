@@ -31,3 +31,4 @@ export class ForumComponent implements OnInit {
     return id;
   }
 }
+ 
