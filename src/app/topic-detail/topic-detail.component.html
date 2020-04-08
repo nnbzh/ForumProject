@@ -1,0 +1,10 @@
+<div *ngIf="topic">
+  <h2>{{topic.title | uppercase}} Details</h2>
+  <div><span>id: </span>{{topic.id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="topic.title" placeholder="name"/>
+    </label>
+  </div>
+  <button (click)="goBack()">go back</button>
+</div>

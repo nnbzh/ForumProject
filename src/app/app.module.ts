@@ -1,15 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
-import {  FormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
+
 import {AppRoutingModule} from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { MainComponent } from './main/main.component';
 import { LoginComponent } from './login/login.component';
-import { AuthComponent } from './auth/auth.component';
 import { ForumComponent } from './forum/forum.component';
+import { NewTopicComponent } from './new-topic/new-topic.component';
+import { TopicDetailComponent } from './topic-detail/topic-detail.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,12 +19,15 @@ import { ForumComponent } from './forum/forum.component';
     FooterComponent,
     MainComponent,
     ForumComponent,
+    MainComponent,
     LoginComponent,
-    AuthComponent
+    NewTopicComponent,
+    TopicDetailComponent
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule,
+    AppRoutingModule,
+    FormsModule,
     AppRoutingModule,
     FormsModule
   ],
