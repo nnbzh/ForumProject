@@ -1,7 +1,9 @@
-export const categories = [
+import { Category } from './category';
+
+export const CATEGORIES: Category[] = [
     {
       id: 1,
-      name: 'Programming Languages',
+      name: 'Programming Languages'
     },
     {
       id: 2,
@@ -11,4 +13,4 @@ export const categories = [
       id: 3,
       name: 'Other'
     },
-  ]
+  ];

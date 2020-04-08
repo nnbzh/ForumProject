@@ -11,6 +11,7 @@ import { LoginComponent } from './login/login.component';
 import { ForumComponent } from './forum/forum.component';
 import { NewTopicComponent } from './new-topic/new-topic.component';
 import { TopicDetailComponent } from './topic-detail/topic-detail.component';
+import { CategoryPageComponent } from './category-page/category-page.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { TopicDetailComponent } from './topic-detail/topic-detail.component';
     MainComponent,
     LoginComponent,
     NewTopicComponent,
-    TopicDetailComponent
+    TopicDetailComponent,
+    CategoryPageComponent
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,7 @@
 <div class="container my-3">
   <nav class="breadcrumb">
-    <a routerLink="/main" class="breadcrumb-item">Board index</a>
-    <a routerLink="/forum-category" class="breadcrumb-item">Forum category</a>
+    <a routerLink="/main" class="breadcrumb-item">Main Page</a>
+    <a (click)="goBack()" class="breadcrumb-item hovering">Forum category</a>
     <span class="breadcrumb-item active">Forum name</span>
   </nav>
   <div class="row">
@@ -22,14 +22,9 @@
           <td>
             <h3 class="h6">
               <span class="badge badge-primary margin-r" *ngIf="topic.unread != 0">{{ topic.unread }} unread</span>
-              <a routerLink="/topic-detail/{{topic.id}}" (click)="this.incrViewCount(topic.id)" class="margin-r" >
-                <label>
-                  <input [(ngModel)]="topic.title" placeholder="Title"/>
-                </label>
-                <!-- {{ topic.title }} -->
-              </a>
+              <a routerLink="/category/{{this.discussions[topic.discussion_id].category_id}}/forum/{{topic.discussion_id}}/topic-detail/{{topic.id}}" (click)="this.incrViewCount(topic.id)">{{ topic.title }}</a>
 
-              <span><button class="btn btn-sm btn-outline-info">Edit title</button></span>
+              <!--<span><button class="btn btn-sm btn-outline-info">Edit title</button></span>-->
             </h3>
 
             <div class="small">Go to page: <a href="#0">1</a>, <a href="#0">2</a>, <a href="#0">3</a> … <a href="#0">7</a>, <a href="#0">8</a>, <a href="#0">9</a></div>
@@ -101,5 +96,5 @@
     <!-- to here -->
 
   </div>
-  <a routerLink="/new-topic" class="btn btn-lg btn-primary">New topic</a>
-</div>
+    <a routerLink="/category/:id/forum/:id/new-topic" class="btn btn-lg btn-primary">New topic</a>
+  </div>

@@ -12,7 +12,7 @@ export const TOPICS: Topic[] = [
     views: 179,
     last_author: 'Last Author name',
     last_date: new Date('April 17, 2019 12:32:00'),
-    discusision_id: 1
+    discussion_id: 1
   },
   {
     id: 2,
@@ -25,7 +25,7 @@ export const TOPICS: Topic[] = [
     views: 179,
     last_author: 'Last Author name',
     last_date: new Date('April 17, 2019 12:32:00'),
-    discusision_id: 1
+    discussion_id: 1
   },
   {
     id: 3,
@@ -38,7 +38,7 @@ export const TOPICS: Topic[] = [
     views: 179,
     last_author: 'Last Author name',
     last_date: new Date('April 17, 2019 12:32:00'),
-    discusision_id: 2
+    discussion_id: 2
   },
   {
     id: 4,
@@ -51,7 +51,7 @@ export const TOPICS: Topic[] = [
     views: 179,
     last_author: 'Last Author name',
     last_date: new Date('April 17, 2019 12:32:00'),
-    discusision_id: 2
+    discussion_id: 2
   },
   {
     id: 5,
@@ -64,7 +64,7 @@ export const TOPICS: Topic[] = [
     views: 179,
     last_author: 'Last Author name',
     last_date: new Date('April 17, 2019 12:32:00'),
-    discusision_id: 3
+    discussion_id: 3
   },
   {
     id: 6,
@@ -77,7 +77,7 @@ export const TOPICS: Topic[] = [
     views: 179,
     last_author: 'Last Author name',
     last_date: new Date('April 17, 2019 12:32:00'),
-    discusision_id: 4
+    discussion_id: 4
   },
   {
     id: 7,
@@ -90,6 +90,6 @@ export const TOPICS: Topic[] = [
     views: 179,
     last_author: 'Last Author name',
     last_date: new Date('April 17, 2019 12:32:00'),
-    discusision_id: 5
+    discussion_id: 5
   },
 ];

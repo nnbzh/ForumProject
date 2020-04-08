@@ -10,5 +10,5 @@ export interface Topic {
   last_author: string;
   last_date: Date;
   comment?: string;
-  discusision_id: number;
+  discussion_id: number;
 }

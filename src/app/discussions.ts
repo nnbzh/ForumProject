@@ -1,4 +1,6 @@
-export const discussions = [
+import { Discussion } from './discussion';
+
+export const DISCUSSIONS: Discussion[] = [
     {
         id: 1,
         name: 'Python',
@@ -39,4 +41,4 @@ export const discussions = [
         posts_count: 7,
         category_id: 3,
     },
-]
+  ];

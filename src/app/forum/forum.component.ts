@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 import { Topic } from '../topic';
 import { TopicService } from '../topic.service';
-import * as $ from 'jquery';
+import { CategoryService} from '../category.service';
+import { Discussion } from '../discussion';
 
 @Component({
   selector: 'app-forum',
@@ -12,10 +14,14 @@ import * as $ from 'jquery';
 })
 export class ForumComponent implements OnInit {
   topics: Topic[];
+  discussions: Discussion[];
   constructor(private topicService: TopicService,
-              private route: ActivatedRoute) { }
+              private categoryService: CategoryService,
+              private route: ActivatedRoute,
+              private location: Location) { }
   ngOnInit(): void {
     this.getTopics();
+    this.getDiscussions();
   }
   getTopics(): void {
     const id = +this.route.snapshot.paramMap.get('id');
@@ -24,5 +30,12 @@ export class ForumComponent implements OnInit {
   }
   incrViewCount(id) {
     this.topicService.incrViewCount(id);
+  }
+  getDiscussions() {
+    this.categoryService.getDiscussions()
+      .subscribe(discussions => this.discussions = discussions);
+  }
+  goBack(): void {
+    this.location.back();
   }
 }
