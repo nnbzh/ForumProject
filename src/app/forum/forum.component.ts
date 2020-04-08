@@ -26,3 +26,4 @@ export class ForumComponent implements OnInit {
     this.topicService.incrViewCount(id);
   }
 }
+ 

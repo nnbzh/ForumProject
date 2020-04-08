@@ -8,26 +8,17 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { MainComponent } from './main/main.component';
 import { LoginComponent } from './login/login.component';
-<<<<<<< HEAD
 import { AuthComponent } from './auth/auth.component';
-=======
 import { ForumComponent } from './forum/forum.component';
->>>>>>> 814e8f15fc7cf687f6fb1298a401b1e12b416c8f
-
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
     MainComponent,
-<<<<<<< HEAD
+    ForumComponent,
     LoginComponent,
     AuthComponent
-=======
-    ForumComponent,
-    MainComponent,
-    LoginComponent
->>>>>>> 814e8f15fc7cf687f6fb1298a401b1e12b416c8f
   ],
   imports: [
     BrowserModule,
