@@ -29,7 +29,7 @@ export class ForumComponent implements OnInit {
       .subscribe(topics => this.topics = topics.sort());       
     }
   }
-  
+   
   getTopics(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.topicService.getTopics(id)

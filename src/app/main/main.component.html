@@ -20,6 +20,9 @@
         <tbody *ngFor = "let discussion of discussions">
           <tr *ngIf = "discussion.category_id == category.id">
             <td>
+              <label>
+                <input [(ngModel)]="discussion.name" placeholder="name"/>
+              </label>
               <h3 class="h5 mb-0"><a routerLink="/forum/{{discussion.id}}" class="text-uppercase">{{discussion.name}}</a></h3>
               <p class="mb-0">{{discussion.description}}</p>
             </td>
@@ -68,4 +71,4 @@
       </div>
     </aside>
   </div>
-</div>
+</div> 

@@ -11,7 +11,7 @@ export class TopicService {
   constructor() { }
 
   topics = TOPICS;
-
+ 
   getTopics(id: number): Observable<Topic[]> {
     return of(TOPICS.filter(topic=>topic.discusision_id === id));
   }
