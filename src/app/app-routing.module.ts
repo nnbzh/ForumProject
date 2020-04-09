@@ -6,20 +6,21 @@ import {ForumComponent} from './forum/forum.component';
 import {NewTopicComponent} from './new-topic/new-topic.component';
 import {TopicDetailComponent} from './topic-detail/topic-detail.component';
 import { AuthComponent } from './auth/auth.component';
-
+import {CategoryPageComponent} from './category-page/category-page.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/main', pathMatch: 'full'},
-  { path: 'main', component: MainComponent},
-  { path: 'login', component: LoginComponent},
-  { path: 'login/new', component: AuthComponent},
-  { path: '', component: MainComponent},
-  { path: 'forum/:id/new-topic', component: NewTopicComponent },
-  { path: 'topic-detail/:id', component: TopicDetailComponent },
-  { path: 'forum/:id', component: ForumComponent}
+  { path: '', redirectTo: '/main', pathMatch: 'full' },
+  { path: '', component: MainComponent },
+  { path: 'main', component: MainComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'login/new', component: AuthComponent },
+  { path: 'category/:id', component: CategoryPageComponent },
+  { path: 'category/:id/forum/:id', component: ForumComponent },
+  { path: 'category/:id/forum/:id/topic-detail/:id', component: TopicDetailComponent },
+  { path: 'category/:id/forum/:id/new-topic', component: NewTopicComponent },
 ];
- 
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

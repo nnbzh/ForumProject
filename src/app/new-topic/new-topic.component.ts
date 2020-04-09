@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { Topic } from '../topic';
-import { TopicService } from '../topic.service';
+import { Topic } from '../models/topic';
+import { TopicService } from '../services/topic.service';
 
 @Component({
   selector: 'app-new-topic',
