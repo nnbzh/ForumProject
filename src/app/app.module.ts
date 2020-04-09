@@ -12,6 +12,10 @@ import { NewTopicComponent } from './new-topic/new-topic.component';
 import { TopicDetailComponent } from './topic-detail/topic-detail.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // <-- NgModel lives here
 
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
+
 import { CategoryPageComponent } from './category-page/category-page.component';
 
 @NgModule({
@@ -32,6 +36,12 @@ import { CategoryPageComponent } from './category-page/category-page.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
+    HttpClientModule,
+
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false }
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]
