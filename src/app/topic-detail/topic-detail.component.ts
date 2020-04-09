@@ -2,8 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { Topic } from '../topic';
-import { TopicService } from '../topic.service';
+import { Topic } from '../models/topic';
+import { TopicService } from '../services/topic.service';
 
 @Component({
   selector: 'app-topic-detail',
@@ -18,9 +18,9 @@ export class TopicDetailComponent implements OnInit {
     private location: Location) { }
 
   ngOnInit(): void {
-    this.getHero();
+    this.getTopic();
   }
-  getHero(): void {
+  getTopic(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.topicService.getTopic(id)
       .subscribe(topic => this.topic = topic);

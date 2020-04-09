@@ -1,5 +1,6 @@
 <div *ngIf="topic">
   <nav class="breadcrumb">
+    <span><button (click)="goBack()" class="btn btn-sm btn-outline-info margin-r">Back</button></span>
     <span class="breadcrumb-item active">{{topic.title}}</span>
   </nav>
   <div col-md-12>
@@ -25,7 +26,7 @@
           <div>Asked by <a href="#">{{topic.author}}</a></div>
         </td>
         <td>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
             Reiciendis dicta at dolore.
              Ipsa adipisci molestiae doloremque dolore
              , eum ad animi amet recusandae neque,

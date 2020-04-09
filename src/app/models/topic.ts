@@ -2,7 +2,7 @@ export interface Topic {
   id: number;
   unread: number;
   title: string;
-  // nav_string: string;
+  description?: string;
   author: string;
   date: Date;
   replies: number;
@@ -10,7 +10,7 @@ export interface Topic {
   last_author: string;
   last_date: Date;
   comment?: string;
-  discusision_id: number;
+  discussion_id: number;
   comments?: Comment[];
 }
 
