@@ -2,7 +2,7 @@ export interface Topic {
   id: number;
   unread: number;
   title: string;
-  // nav_string: string;
+  description?: string;
   author: string;
   date: Date;
   replies: number;

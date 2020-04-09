@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { Topic } from '../topic';
-import { TopicService } from '../topic.service';
-import { CategoryService} from '../category.service';
-import { Discussion } from '../discussion';
+import { Topic } from '../models/topic';
+import { TopicService } from '../services/topic.service';
+import { CategoryService} from '../services/category.service';
+import { Discussion } from '../models/discussion';
 
 @Component({
   selector: 'app-forum',
@@ -20,14 +20,26 @@ export class ForumComponent implements OnInit {
               private route: ActivatedRoute,
               private location: Location) { }
   ngOnInit(): void {
-    this.getTopics();
+    this.getTopicsByDiscussionId();
     this.getDiscussions();
     this.getDiscussionId();
   }
-  getTopics(): void {
+  getTopicsByDiscussionId(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.topicService.getTopics(id)
+    this.topicService.getTopicsByDiscussionId(id)
       .subscribe(topics => this.topics = topics);
+  }
+  getDiscussionNameById(): string {
+    const id = +this.route.snapshot.paramMap.get('id');
+    return this.topicService.getDiscussionNameById(id);
+  }
+  getCategoryNameByDiscassionId(): string {
+    const discussionId = +this.route.snapshot.paramMap.get('id');
+    return this.categoryService.getCategoryNameByDiscassionId(discussionId);
+  }
+  getCategoryIdByDiscussionId(): number {
+    const discussionId = +this.route.snapshot.paramMap.get('id');
+    return this.categoryService.getCategoryIdByDiscussionId(discussionId);
   }
   incrViewCount(id) {
     this.topicService.incrViewCount(id);

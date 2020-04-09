@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { Category } from '../category';
-import { Discussion } from '../discussion';
-import { CategoryService } from '../category.service';
+import { Category } from '../models/category';
+import { Discussion } from '../models/discussion';
+import { CategoryService } from '../services/category.service';
 
 @Component({
   selector: 'app-main',

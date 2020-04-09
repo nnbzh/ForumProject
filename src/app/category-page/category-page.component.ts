@@ -1,9 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { CategoryService } from '../category.service';
-import { Discussion } from '../discussion';
-import { Category} from '../category';
+import { CategoryService } from '../services/category.service';
+import { Discussion } from '../models/discussion';
+import { Category} from '../models/category';
+import {CATEGORIES} from "../database/categories";
 
 @Component({
   selector: 'app-category-page',
@@ -28,5 +29,9 @@ export class CategoryPageComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id');
     this.categoryService.getCategory(id)
       .subscribe(category => this.category = category);
+  }
+  getCategoryNameById(): string {
+    const id = +this.route.snapshot.paramMap.get('id');
+    return this.categoryService.getCategoryNameById(id);
   }
 }

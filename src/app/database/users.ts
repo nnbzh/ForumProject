@@ -1,4 +1,4 @@
-import { User } from './user'
+import { User } from '../models/user'
 
 export const USERS: User[] = [
     {
@@ -22,5 +22,5 @@ export const USERS: User[] = [
         email: 'Nurik@gmail.com',
         password:'nurik123'
     }
-    
+
 ]
