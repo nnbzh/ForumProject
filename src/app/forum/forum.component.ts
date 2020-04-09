@@ -44,6 +44,7 @@ export class ForumComponent implements OnInit {
     this.paginate();
   }
 
+
   onChangeSortDirection(orderValue) {
     const id = +this.route.snapshot.paramMap.get('id');
     if (orderValue === 'asc') {
@@ -56,7 +57,7 @@ export class ForumComponent implements OnInit {
   }
   getTopicsByDiscussionId(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.topicService.getTopicsByDiscussionId(id)
+    this.topicService.getTopicsByDiscussionIdHttp(id)
       .subscribe(topics => this.allTopics = topics);
   }
   getDiscussionNameById(): string {
@@ -75,7 +76,7 @@ export class ForumComponent implements OnInit {
     this.topicService.incrViewCount(id);
   }
   getDiscussions() {
-    this.categoryService.getDiscussions()
+    this.categoryService.getDiscussionsByHttp()
       .subscribe(discussions => this.discussions = discussions);
   }
   goBack(): void {

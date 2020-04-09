@@ -13,6 +13,7 @@ import {CATEGORIES} from '../database/categories';
 })
 export class CategoryPageComponent implements OnInit {
   discussions: Discussion[];
+  categories: Category[];
   @Input() category: Category;
   constructor(private categoryService: CategoryService,
               private route: ActivatedRoute) { }
@@ -22,7 +23,7 @@ export class CategoryPageComponent implements OnInit {
   }
   getDiscussionsByCategoryId(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.categoryService.getDiscussionsByCategoryId(id)
+    this.categoryService.getDiscussionsByCategoryIdHttp(id)
       .subscribe(discussions => this.discussions = discussions);
   }
   getCategory(): void {
@@ -34,4 +35,5 @@ export class CategoryPageComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id');
     return this.categoryService.getCategoryNameById(id);
   }
+
 }

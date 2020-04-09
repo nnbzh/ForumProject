@@ -22,11 +22,11 @@ export class MainComponent implements OnInit {
     this.getDiscussions();
   }
   getCategories() {
-    this.categoryService.getCategories()
+    this.categoryService.getCategoriesByHttp()
       .subscribe(categories => this.categories = categories);
   }
   getDiscussions() {
-    this.categoryService.getDiscussions()
-      .subscribe(discussions => this.discussions = discussions);
+    this.categoryService.getDiscussionsByHttp()
+      .subscribe(discussions=>this.discussions = discussions);
   }
 }
