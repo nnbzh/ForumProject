@@ -35,12 +35,7 @@ export class ForumComponent implements OnInit {
       .subscribe(topics => this.topics = topics.sort());
     }
   }
-<<<<<<< HEAD
-   
-  getTopics(): void {
-=======
   getTopicsByDiscussionId(): void {
->>>>>>> eac7b400fc2c7973df25a6bda9494894c6e542c5
     const id = +this.route.snapshot.paramMap.get('id');
     this.topicService.getTopicsByDiscussionId(id)
       .subscribe(topics => this.topics = topics);
