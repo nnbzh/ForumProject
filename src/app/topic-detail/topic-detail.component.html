@@ -42,11 +42,11 @@
     <tbody>
       <tr>
         <td class="author-col">
-          <div>Answer by <a href="#">{{commentary.author}}</a></div>
+          <div><h6>Answered by:</h6> <a href="#">{{commentary.author}}</a></div>
         </td>
         <td class="post-col d-lg-flex justify-content-lg-between">
-          <div><span class="font-weight-bold">Post subject:</span> Forum post title with a complex and long question.</div>
-          <div><span class="font-weight-bold">Posted:</span>{{commentary.date}}</div>
+          <div><span class="font-weight-bold"><h6>Pubject:</h6></span> Forum post title with a complex and long question.</div>
+          <div><span class="font-weight-bold"><h6>Posted:</h6></span>{{commentary.date | date:'dd MMM y, mm:ss' }}</div>
         </td>
       </tr>
       <tr>

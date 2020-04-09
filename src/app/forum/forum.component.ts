@@ -13,6 +13,9 @@ import { Discussion } from '../models/discussion';
   styleUrls: ['./forum.component.css']
 })
 export class ForumComponent implements OnInit {
+  limit = 3;
+  offset = 0;
+  allTopics: Topic[];
   topics: Topic[];
   discussions: Discussion[];
   constructor(private topicService: TopicService,
@@ -23,6 +26,22 @@ export class ForumComponent implements OnInit {
     this.getTopicsByDiscussionId();
     this.getDiscussions();
     this.getDiscussionId();
+    this.paginate();
+    this.limit = 3;
+    this.offset = 0;
+  }
+  paginate() {
+    this.topics = this.allTopics.slice(this.offset, this.offset + this.limit);
+  }
+
+  next() {
+    this.offset = Math.min(this.offset + this.limit, this.allTopics.length);
+    this.paginate();
+  }
+
+  prev() {
+    this.offset = Math.max(0, this.offset - this.limit);
+    this.paginate();
   }
 
   onChangeSortDirection(orderValue) {
@@ -38,7 +57,7 @@ export class ForumComponent implements OnInit {
   getTopicsByDiscussionId(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.topicService.getTopicsByDiscussionId(id)
-      .subscribe(topics => this.topics = topics);
+      .subscribe(topics => this.allTopics = topics);
   }
   getDiscussionNameById(): string {
     const id = +this.route.snapshot.paramMap.get('id');

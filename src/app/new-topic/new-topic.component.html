@@ -1,27 +1,24 @@
-<div class="container my-3"> 
+<div class="container my-3">
   <nav class="breadcrumb">
-    <a routerLink="/main" class="breadcrumb-item">Board index</a>
-    <a routerLink="/" class="breadcrumb-item">Forum category</a>
-    <a href="/forum/:id" class="breadcrumb-item">Forum name</a>
-    <span class="breadcrumb-item active">Create new topic</span>
+    <span><button (click)="goBack()" class="btn btn-sm btn-outline-info margin-r">Back</button></span>
   </nav>
   <div class="row">
     <div class="col-12">
       <h2 class="h4 text-white bg-info mb-3 p-4 rounded">Create new topic</h2>
-      <form action="">
+      <div action="">
       <div class="mb-3">
         <div class="form-group">
           <label for="topic">Topic:</label>
-          <input type="text" class="form-control" id="topic" [(ngModel)]="topic.title" placeholder="Give your topic a title." required="">
+          <input type="text" class="form-control" id="topic" [(ngModel)]="newTopic" placeholder="Give your topic a title." required="">
         </div>
         <div class="form-group">
           <label for="comment">Comment:</label>
-          <textarea class="form-control" id="comment" rows="10" [(ngModel)]="topic.comment" placeholder="Write your comment here." required=""></textarea>
+          <textarea class="form-control" id="comment" rows="10" [(ngModel)]="newComment" placeholder="Write your comment here." required=""></textarea>
         </div>
-        <button type="submit" class="btn btn-primary mr-1">Create topic</button>
+        <button type="submit" class="btn btn-primary mr-1" (click)="check()">Create topic</button>
         <button type="reset" class="btn btn-danger">Reset</button>
       </div>
-    </form>
+    </div>
     </div>
   </div>
 </div>

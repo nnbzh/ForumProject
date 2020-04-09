@@ -51,6 +51,29 @@
     </div>
   </div>
   <div class="mb-3 clearfix">
+    <!--paginate-->
+    <div class="pagination flex flex-wrap justify-content-between align-items-center" style="margin-bottom: 1em">
+      <div class="col-12 col-lg-4 order-2 order-lg-1 mt-3 mt-lg-0">
+        <ul class="flex flex-wrap align-items-center order-2 order-lg-1 p-0 m-0">
+          <span><button (click)="prev()" class="btn btn-sm btn-outline-info margin-r">prev</button></span>
+          <span><button (click)="next()" class="btn btn-sm btn-outline-info margin-r">next</button></span>
+        </ul>
+      </div>
+
+      <div class="col-12 flex justify-content-start justify-content-lg-end col-lg-8 order-1 order-lg-2">
+        <div class="pagination-results flex flex-wrap align-items-center">
+          <p class="m-0">Showing {{offset}}–{{limit}} of {{allTopics.length}} results</p>
+
+          <select [(ngModel)]="limit" (click)="paginate()">
+            <option value="3">Show: 03</option>
+            <option value="4">Show: 04</option>
+            <option value="5">Show: 05</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <!-- paginate -->
+
     <!--
     <nav aria-label="Navigate post pages" class="float-lg-right">
       <ul class="pagination pagination-sm mb-lg-0">
