@@ -40,12 +40,15 @@
             <div>{{ topic.date | date:'dd MMM y, mm:ss' }}</div>
           </td>
           <td>
-            <div>{{ topic.replies }} replies</div>
+            <div *ngIf = "topic.comments && topic.comments.length>0; else noComments">{{ topic.comments.length }} replies</div>
             <div>{{ topic.views }} views</div>
           </td>
           <td>
-            <div>by <a href="#">{{ topic.last_author }}</a></div>
-            <div>{{ topic.last_date | date:'dd MMM y, mm:ss' }}</div>
+            <div *ngIf = "topic.comments && topic.comments.length>0; else noComments">
+            <div>by <a href="#">{{ topic.comments[topic.comments.length-1].author}}</a></div>
+            <div>{{ topic.comments[topic.comments.length-1].date | date:'dd MMM y, mm:ss' }}</div>
+          </div>
+          <ng-template #noComments>No replies yet</ng-template>
           </td>
         </tr>
         </tbody>
