@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 
 import {AppRoutingModule} from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +10,8 @@ import { LoginComponent } from './login/login.component';
 import { ForumComponent } from './forum/forum.component';
 import { NewTopicComponent } from './new-topic/new-topic.component';
 import { TopicDetailComponent } from './topic-detail/topic-detail.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // <-- NgModel lives here
+
 import { CategoryPageComponent } from './category-page/category-page.component';
 
 @NgModule({
@@ -30,8 +31,7 @@ import { CategoryPageComponent } from './category-page/category-page.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    AppRoutingModule,
-    FormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
