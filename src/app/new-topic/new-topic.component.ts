@@ -18,4 +18,4 @@ export class NewTopicComponent implements OnInit {
   ngOnInit(): void {
   }
 
-}
+} 
