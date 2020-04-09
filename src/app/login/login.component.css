@@ -37,7 +37,7 @@ button:hover {
     height: 35px;
     padding: 5px;
     border-radius: 17px;
-    color: #2A363B;
+    color: #FFFFFF;
 }
 
 /* Center the avatar image inside this container */
@@ -81,7 +81,7 @@ span.psw {
 }
 .message a {
   color: #E84A5F;
-  
+
 }
 
 

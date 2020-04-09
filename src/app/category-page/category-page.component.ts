@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { CategoryService } from '../services/category.service';
 import { Discussion } from '../models/discussion';
 import { Category} from '../models/category';
-import {CATEGORIES} from "../database/categories";
+import {CATEGORIES} from '../database/categories';
 
 @Component({
   selector: 'app-category-page',

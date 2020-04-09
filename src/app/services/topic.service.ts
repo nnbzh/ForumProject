@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Topic } from '../models/topic';
 import { TOPICS } from '../database/topics-list';
 import { Observable, of } from 'rxjs';
-import {DISCUSSIONS} from "../database/discussions";
+import {DISCUSSIONS} from '../database/discussions';
 
 @Injectable({
   providedIn: 'root'
