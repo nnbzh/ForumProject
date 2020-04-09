@@ -1,7 +1,7 @@
 export interface User {
     user_id: number;
-    // status: string;
-    username: string;
+    name: string;
+    login: string;
     email: string;
     password: string;
 }

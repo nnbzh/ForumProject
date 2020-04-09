@@ -17,6 +17,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 
 import { CategoryPageComponent } from './category-page/category-page.component';
+import {AuthComponent} from './auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { CategoryPageComponent } from './category-page/category-page.component';
     LoginComponent,
     NewTopicComponent,
     TopicDetailComponent,
-    CategoryPageComponent
+    CategoryPageComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
@@ -37,11 +39,9 @@ import { CategoryPageComponent } from './category-page/category-page.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    HttpClientModule,
-
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
-    )
+    ),
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core'; 
+import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup , FormBuilder , FormControl  , Validators } from '@angular/forms';
+import {User} from '../models/user';
+import { Location} from '@angular/common';
 
 @Component({
   selector: 'app-auth',
@@ -7,40 +9,37 @@ import { FormGroup , FormBuilder , FormControl  , Validators } from '@angular/fo
   styleUrls: ['./auth.component.css']
 })
 export class AuthComponent implements OnInit {
-  
-  authForm: FormGroup;
+  @Input() user: User;
 
-  constructor(private fb: FormBuilder) { }
+  public login = '';
+  public password = '';
+  public confirm = '';
+  public name = '';
+  public email = '';
+  constructor(private location: Location) { }
 
   ngOnInit(): void {
-    //this.initForm();
-    this.authForm = this.fb.group({
-      email: [''],
-      username: ['', Validators.required],
-      password: ['']
-    });
-
-    // this.authForm = new FormGroup({
-    //   email: new FormControl(),
-    //   username: new FormControl(),
-    //   password: new FormControl()
-    // });
-
-    this.authForm.valueChanges.subscribe((value) => console.log(value));
   }
 
-  // private initForm(): void {
-  //   this.authForm = this.fb.group({
-  //    type: null,
-  //    name: null,
-  //    address: null,
-  //    password: null
-  //   });
-  //  }
-
-  onSubmit() {
-    // TODO: Use EventEmitter with form value
-    console.warn(this.authForm.value);
+  clear() {
+    this.login = '';
+    this.password = '';
+    this.confirm = '';
+    this.name = '';
+    this.email = '';
   }
-
+  goBack(): void {
+    this.location.back();
+  }
+  signup() {
+    if (!this.login || !this.password || !this.confirm) {
+      alert('Please, write your login and password!');
+      this.clear();
+    } else if (this.password !== this.confirm) {
+      alert('Passwords do not match. Try again, please!');
+      this.clear();
+    } else {
+      alert('You were successfully logged in. Now log in our system.');
+    }
+  }
 }
