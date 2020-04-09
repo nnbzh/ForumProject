@@ -13,6 +13,13 @@ export const TOPICS: Topic[] = [
     views: 179,
     last_author: 'Katy Browse',
     last_date: new Date('April 17, 2019 12:32:00'),
+    comments: [
+      {
+        id: 1,
+        content: 'i can help you bro',
+        author: 'Eto zhe ya Nurik',
+        date: new Date()
+      }],
   },
   {
     discussion_id: 1,
