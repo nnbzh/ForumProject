@@ -1,5 +1,5 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
-import { User } from './user';
+import { User } from './models/user';
 import { Injectable } from '@angular/core';
 
 @Injectable({

@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { Category } from '../models/category';
 import { Discussion } from '../models/discussion';
-import { CategoryService } from '../services/category.service';
+  import { CategoryService } from '../services/category.service';
 
 @Component({
   selector: 'app-main',
