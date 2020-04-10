@@ -84,4 +84,13 @@ export class ForumComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id');
     return id;
   }
+  // TODO: update later
+  add(title: string): void {
+    title = title.trim();
+    if (!title) { return; }
+    this.topicService.addTopic({ title } as Topic)
+      .subscribe(topic => {
+        this.allTopics.push(topic);
+      });
+  }
 }

@@ -11,7 +11,7 @@ import { TopicService } from '../services/topic.service';
   styleUrls: ['./topic-detail.component.css']
 })
 export class TopicDetailComponent implements OnInit {
-  topic: Topic;
+  @Input() topic: Topic;
   pageID: number;
   constructor(
     private route: ActivatedRoute,
@@ -21,6 +21,7 @@ export class TopicDetailComponent implements OnInit {
   ngOnInit(): void {
     this.getTopicByHttp();
     this.getPageId();
+    this.getTopic();
   }
 
   getPageId() {
@@ -42,4 +43,9 @@ export class TopicDetailComponent implements OnInit {
     this.location.back();
   }
 
+  // TODO: update later
+  save(): void {
+    this.topicService.updateHero(this.topic)
+      .subscribe(() => this.goBack());
+  }
 }

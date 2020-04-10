@@ -1,16 +1,16 @@
 export interface Topic {
-  id: number;
-  unread: number;
+  id?: number;
+  unread?: number;
   title: string;
   description?: string;
-  author: string;
-  date: Date;
-  replies: number;
-  views: number;
-  last_author: string;
-  last_date: Date;
+  author?: string;
+  date?: Date;
+  replies?: number;
+  views?: number;
+  last_author?: string;
+  last_date?: Date;
   comment?: string;
-  discussion_id: number;
+  discussion_id?: number;
   comments?: Comment[];
 }
 
