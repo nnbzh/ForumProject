@@ -2,28 +2,28 @@ import { Injectable } from '@angular/core';
 import { Topic } from '../models/topic';
 import { TOPICS } from '../database/topics-list';
 import { Observable, of } from 'rxjs';
-import {DISCUSSIONS} from "../database/discussions";
-import {HttpClient} from '@angular/common/http'
+import {DISCUSSIONS} from '../database/discussions';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TopicService {
 
-  constructor(private http : HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   topics = TOPICS;
 
   topicsUrl = 'api/TOPICS';
-  discussionsUrl = 'api/DISCUSSIONS'
+  discussionsUrl = 'api/DISCUSSIONS';
 
-  getTopicsByDiscussionIdHttp(id:number): Observable<Topic[]> {
+  getTopicsByDiscussionIdHttp(id: number): Observable<Topic[]> {
     const url = `${this.topicsUrl}/?discussion_id=${id}`;
     return this.http.get<Topic[]>(url);
   }
 
-  getTopicByHttp(id:number) : Observable<Topic> {
-    const url = `${this.topicsUrl}/?id=${id}`;;
+  getTopicByHttp(id: number): Observable<Topic> {
+    const url = `${this.topicsUrl}/?id=${id}`;
     return this.http.get<Topic>(url);
   }
 

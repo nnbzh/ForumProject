@@ -4,17 +4,17 @@ import { Category } from '../models/category';
 import { CATEGORIES } from '../database/categories';
 import { DISCUSSIONS } from '../database/discussions';
 import { Observable, of } from 'rxjs';
-import {HttpClient} from '@angular/common/http'
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CategoryService {
 
-  constructor(private http : HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   categoriesUrl = 'api/CATEGORIES';
-  discussionsUrl = 'api/DISCUSSIONS'
+  discussionsUrl = 'api/DISCUSSIONS';
 
   categories = CATEGORIES;
   discussions = DISCUSSIONS;
@@ -26,7 +26,6 @@ export class CategoryService {
   getDiscussionsByHttp() {
     return this.http.get<Discussion[]>(this.discussionsUrl);
   }
-  
   getDiscussionsByCategoryIdHttp(id: number): Observable<Discussion[]> {
     const url = `${this.discussionsUrl}/?category_id=${id}`;
     return this.http.get<Discussion[]>(url);

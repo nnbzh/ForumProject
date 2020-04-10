@@ -12,7 +12,7 @@ import { TopicService } from '../services/topic.service';
 })
 export class TopicDetailComponent implements OnInit {
   topic: Topic;
-  pageID:number;
+  pageID: number;
   constructor(
     private route: ActivatedRoute,
     private topicService: TopicService,
@@ -25,11 +25,10 @@ export class TopicDetailComponent implements OnInit {
 
   getPageId() {
     this.pageID = +this.route.snapshot.paramMap.get('id');
-    
   }
   getTopicByHttp() {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.topicService.getTopicByHttp(id).subscribe(topic=>this.topic = topic);
+    this.topicService.getTopicByHttp(id).subscribe(topic => this.topic = topic);
   }
 
   // http --------------------------------------------------------------------------->

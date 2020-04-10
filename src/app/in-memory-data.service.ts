@@ -1,8 +1,8 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 import { Injectable } from '@angular/core';
-import {Category} from './models/category'
-import {Discussion} from './models/discussion'
-import {Topic} from './models/topic'
+import {Category} from './models/category';
+import {Discussion} from './models/discussion';
+import {Topic} from './models/topic';
 
 @Injectable({
   providedIn: 'root',
@@ -472,7 +472,7 @@ export class InMemoryDataService implements InMemoryDbService {
         last_date: new Date('April 17, 2019 12:32:00'),
       }
     ];
-    return {CATEGORIES, DISCUSSIONS, TOPICS}
+    return {CATEGORIES, DISCUSSIONS, TOPICS};
   }
 
   // Overrides the genId method to ensure that a hero always has an id.

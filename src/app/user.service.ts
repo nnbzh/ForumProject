@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { User } from './user';
+import { User } from './models/user';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { USERS } from './users';
 import { catchError, map, tap } from 'rxjs/operators';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -17,7 +17,7 @@ export class UserService {
    ) { }
 
    getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(this.usersUrl)
+    return this.http.get<User[]>(this.usersUrl);
   }
 
   /** GET hero by id. Will 404 if id not found */
@@ -27,10 +27,10 @@ export class UserService {
    }
 
    /** PUT: update the hero on the server */
-   updateUser (user: User): Observable<any> {
+   updateUser(user: User): Observable<any> {
   return this.http.put(this.usersUrl, user, this.httpOptions);
    }
-   addUser (user: User): Observable<User> {
+   addUser(user: User): Observable<User> {
     return this.http.post<User>(this.usersUrl, user, this.httpOptions);
   }
 }
