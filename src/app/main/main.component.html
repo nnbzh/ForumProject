@@ -17,8 +17,8 @@
             <th scope="col" class="last-post-col">Last post</th>
           </tr>
         </thead>
-        <tbody *ngFor = "let discussion of discussions">
-          <tr *ngIf = "discussion.category_id == category.id">
+        <tbody *ngFor = "let discussion of category.discussions">
+          <tr>
             <td>
               <label>
                 <input [(ngModel)]="discussion.name" placeholder="Name"/>

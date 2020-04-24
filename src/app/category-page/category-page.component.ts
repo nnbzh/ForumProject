@@ -12,28 +12,16 @@ import {CATEGORIES} from '../database/categories';
   styleUrls: ['./category-page.component.css']
 })
 export class CategoryPageComponent implements OnInit {
-  discussions: Discussion[];
-  categories: Category[];
   @Input() category: Category;
   constructor(private categoryService: CategoryService,
               private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.getDiscussionsByCategoryId();
-  }
-  getDiscussionsByCategoryId(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.categoryService.getDiscussionsByCategoryIdHttp(id)
-      .subscribe(discussions => this.discussions = discussions);
-  }
-  getCategory(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.categoryService.getCategory(id)
-      .subscribe(category => this.category = category);
-  }
-  getCategoryNameById(): string {
-    const id = +this.route.snapshot.paramMap.get('id');
-    return this.categoryService.getCategoryNameById(id);
+    this.getCategory();
   }
 
+  getCategory() {
+    const id= +this.route.snapshot.paramMap.get('id');
+    this.categoryService.getCategory(id).subscribe(category => this.category = category);
+  }
 }

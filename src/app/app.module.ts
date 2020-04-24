@@ -13,11 +13,10 @@ import { TopicDetailComponent } from './topic-detail/topic-detail.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // <-- NgModel lives here
 
 import { HttpClientModule } from '@angular/common/http';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './in-memory-data.service';
 
 import { CategoryPageComponent } from './category-page/category-page.component';
 import {AuthComponent} from './auth/auth.component';
+import { TestComponent } from './test/test.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +30,8 @@ import {AuthComponent} from './auth/auth.component';
     NewTopicComponent,
     TopicDetailComponent,
     CategoryPageComponent,
-    AuthComponent
+    AuthComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
@@ -39,9 +39,6 @@ import {AuthComponent} from './auth/auth.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
-    ),
   ],
   providers: [],
   bootstrap: [AppComponent]

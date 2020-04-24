@@ -19,26 +19,20 @@ export class TopicDetailComponent implements OnInit {
     private location: Location) { }
 
   ngOnInit(): void {
-    this.getTopicByHttp();
-    this.getPageId();
     this.getTopic();
+    this.getPageId();
   }
 
   getPageId() {
     this.pageID = +this.route.snapshot.paramMap.get('id');
   }
-  getTopicByHttp() {
+  getTopic() {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.topicService.getTopicByHttp(id).subscribe(topic => this.topic = topic);
+    this.topicService.getTopic(id).subscribe(topic => this.topic = topic);
   }
 
   // http --------------------------------------------------------------------------->
 
-  getTopic(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.topicService.getTopic(id)
-      .subscribe(topic => this.topic = topic);
-  }
   goBack(): void {
     this.location.back();
   }

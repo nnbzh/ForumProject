@@ -11,22 +11,16 @@ import { CategoryService } from '../services/category.service';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-  categories: Category[];
-  discussions: Discussion[];
+  categories: Category[] = [];
 
   constructor(private categoryService: CategoryService,
               private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.getCategories();
-    this.getDiscussions();
   }
   getCategories() {
-    this.categoryService.getCategoriesByHttp()
-      .subscribe(categories => this.categories = categories);
-  }
-  getDiscussions() {
-    this.categoryService.getDiscussionsByHttp()
-      .subscribe(discussions => this.discussions = discussions);
+    this.categoryService.getCategories()
+      .subscribe(categories => {this.categories = categories});
   }
 }
