@@ -20,6 +20,13 @@ export class UserService {
     return this.http.get<User[]>(this.usersUrl);
   }
 
+  login(username, password): Observable<any> {
+    return this.http.post('http://localhost:8000/api/login/', {
+      username: username,
+      password: password
+    }); 
+  }
+
   /** GET hero by id. Will 404 if id not found */
    getUser(id: number): Observable<User> {
   const url = `${this.usersUrl}/${id}`;

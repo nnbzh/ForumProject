@@ -32,6 +32,10 @@ export class TopicService {
     return this.http.get<Topic>(url);
   }
 
+  addTopic(topic: Topic): Observable<Topic> {
+    const url = `${this.BASE_URL}/api/topics/`;
+    return this.http.post<Topic>(url, topic, this.httpOptions);
+  }
 
   incrViewCount(id): void {
     this.topics.find(film => film.id === id).views = ((TOPICS.find(film => film.id === id).views) + 1);
@@ -53,11 +57,7 @@ export class TopicService {
 
   /** POST: add a new topic to the server */
   // TODO: update later
-  addTopic(topic: Topic): Observable<Topic> {
-    return this.http.post<Topic>(this.topicsUrl, topic, this.httpOptions).pipe(
-      catchError(this.handleError<Topic>('addTopic'))
-    );
-  }
+
   // http ------------------------------------------------------->
 
 

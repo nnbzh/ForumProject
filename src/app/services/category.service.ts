@@ -25,7 +25,5 @@ export class CategoryService {
     const url = `${this.BASE_URL}/api/categories/${id}/`;
     return this.http.get<Category>(url);
   }
-
   
-
 }

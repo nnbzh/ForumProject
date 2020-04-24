@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Location} from '@angular/common';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-login',
@@ -7,25 +8,29 @@ import { Location} from '@angular/common';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  public login = '';
-  public password = '';
-  constructor(private location: Location) { }
+
+  username = '';
+  password = '';
+  constructor(private location: Location,
+    private userService: UserService) { }
 
   ngOnInit(): void {
+
   }
   clear() {
-    this.login = '';
+    this.username = '';
     this.password = '';
   }
   goBack(): void {
     this.location.back();
   }
-  logIn() {
-    if (!this.login || !this.password) {
-      alert('Please, write your login and password!');
-      this.clear();
-    } else {
-      alert('You were successfully logged in. Now log in our system.');
-    }
+
+  login() {
+     this.userService.login(this.username, this.password).subscribe(res=>{
+      localStorage.setItem('token', res.token);
+      this.username = '';
+      this.password = '';
+      this.goBack();
+    })
   }
 }
