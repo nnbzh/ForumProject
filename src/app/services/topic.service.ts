@@ -68,11 +68,12 @@ export class TopicService {
 
   /** PUT: update the topic on the server */
   // TODO: update later
-  updateHero(topic: Topic): Observable<any> {
-    return this.http.put(this.topicsUrl, topic, this.httpOptions).pipe(
-      catchError(this.handleError<any>('updateHero'))
-    );
+  updateTopic(topic: Topic): Observable<Topic> {
+    const url = `${this.BASE_URL}/api/topics/${topic.id}/`;
+    return this.http.put<Topic>(url, topic, this.httpOptions);
   }
+
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(error);

@@ -13,6 +13,8 @@
 </div>
 <div class="col-12">
   <h2 class="h4 text-white bg-info mb-0 p-4 rounded-top">{{ topic.title}}</h2>
+  <input type="text" [(ngModel)]="title" />
+    <span><button (click)="save()" class="btn btn-sm btn-outline-info margin-r">Save</button></span>
 
 <!--  TODO: update later-->
 <!--  <div style="margin-top:1em">-->

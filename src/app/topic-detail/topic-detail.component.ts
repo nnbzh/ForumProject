@@ -17,6 +17,8 @@ import { from } from 'rxjs';
   answer: Comment
   logged;
   commentDescription = '';
+  ngModuleName: string;
+  title: string;
   constructor(
     private route: ActivatedRoute,
     private topicService: TopicService,
@@ -53,6 +55,7 @@ import { from } from 'rxjs';
     });
   }
 
+
   // http --------------------------------------------------------------------------->
 
   goBack(): void {
@@ -61,7 +64,8 @@ import { from } from 'rxjs';
 
   // TODO: update later
   save(): void {
-    this.topicService.updateHero(this.topic)
-      .subscribe(() => this.goBack());
+    this.topic.title=this.title;
+    this.topicService.updateTopic(this.topic)
+      .subscribe(topic => this.topic = topic);
   }
 }
