@@ -26,11 +26,19 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-     this.userService.login(this.username, this.password).subscribe(res=>{
+    this.userService.login(this.username, this.password).subscribe(res => {
       localStorage.setItem('token', res.token);
       this.username = '';
       this.password = '';
-      this.goBack();
-    })
+      // alert('Logged in successfully!');
+      this.GoBackWithRefresh();
+    });
+  }
+  GoBackWithRefresh() {
+    if ('referrer' in document) {
+      location.replace(document.referrer);
+    } else {
+      window.history.back();
+    }
   }
 }

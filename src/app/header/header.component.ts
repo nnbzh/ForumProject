@@ -22,6 +22,8 @@ export class HeaderComponent implements OnInit {
   logout() {
     localStorage.clear();
     this.logged = false;
+    // alert('Logged out successfully!');
+    location.reload();
   }
 
 }
