@@ -30,7 +30,7 @@ export class ForumComponent implements OnInit {
   ngOnInit(): void {
     this.limit = 3;
     this.offset = 0;
-    this.page = 2;
+    this.page = 1;
     this.getTopics();
     this.category_id= this.route.snapshot.paramMap.get('category_id');
     this.discussion_id= this.route.snapshot.paramMap.get('id');
@@ -53,17 +53,35 @@ export class ForumComponent implements OnInit {
   }
 
   next(page: number){
+    if(this.page < this.topics.length){
     this.page= page +1;
+    
     const id = +this.route.snapshot.paramMap.get('id');
     this.topicService.getTopicsByPage(id, page).subscribe(topics => this.topics = topics);
     console.log(page);
+    }
+    else if(this.page == this.topics.length){
+      const id = +this.route.snapshot.paramMap.get('id');
+      this.topicService.getTopicsByPage(id, page).subscribe(topics => this.topics = topics);
+      console.log(page);
+      }
+     console.log(this.topics.length);
   }
 
   prev(page: number) {
+    if(this.page > 1){
     this.page = page-1;
     const id = +this.route.snapshot.paramMap.get('id');
     this.topicService.getTopicsByPage(id, page).subscribe(topics => this.topics = topics);
     console.log(page);
+    }
+    if(this.page == 1 ){
+    // this.page= page +1;
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.topicService.getTopicsByPage(id, page).subscribe(topics => this.topics = topics);
+    console.log(page);
+    }
+
   }
 
   // onChangeSortDirection(orderValue) {
