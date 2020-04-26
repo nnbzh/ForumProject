@@ -1,7 +1,7 @@
 <div class="container my-3">
   <nav class="breadcrumb">
     <a routerLink="/main" class="breadcrumb-item">Main Page</a>
-    <a routerLink="/category/" class="breadcrumb-item hovering">Category Name</a>
+    <a routerLink="/category/{{this.category_id}}" class="breadcrumb-item hovering">Category Name</a>
     <!-- <span class="breadcrumb-item active">{{discussion.name}}</span> -->
   </nav>
   <div class="row">
@@ -22,12 +22,8 @@
             <h3 class="h6">
               <span class="badge badge-primary margin-r" *ngIf="topic.unread != 0">{{ topic.unread }} unread</span>
               <a routerLink="/category/{{this.category_id}}/forum/{{this.discussion_id}}/topic-detail/{{topic.id}}" (click)="this.incrViewCount(topic.id)">{{ topic.title }}  </a>
-              <label *ngIf="this.logged && this.isAdmin != null">
-                <input [(ngModel)]="topic.title" placeholder="Title"/>
-              </label>
             </h3>
-
-            <div class="small"><button (click)="deleteTopic(topic.id)" class="btn btn-sm btn-outline-info margin-r margin-t">delete topic</button></div>
+            <div *ngIf="this.logged && this.isAdmin != null" class="small"><button (click)="deleteTopic(topic.id)" class="btn btn-sm btn-outline-info margin-r margin-t">delete topic</button></div>
           </td>
           <td>
             <div>by <a href="#">{{ topic.author }}</a></div>

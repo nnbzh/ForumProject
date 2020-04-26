@@ -13,6 +13,11 @@
 </div>
 <div class="col-12">
   <h2 class="h4 text-white bg-info mb-0 p-4 rounded-top">{{ topic.title}}</h2>
+  <div *ngIf="this.logged && this.isAdmin != null">  
+    <input type="text" [(ngModel)]="title" class="w-50" placeholder="{{topic.title}}"/>
+    <span><button (click)="save()" class="btn btn-sm btn-outline-info margin-r">Save</button></span>
+  </div>
+
 
 <!--  TODO: update later-->
 <!--  <div style="margin-top:1em">-->
@@ -49,7 +54,7 @@
       <tr>
         <td class="author-col">
           <div><p>Answered by:</p> <a href="#">{{commentary.author}}</a></div>
-          <div><button (click)="deleteCommentary(commentary.id)" class="btn btn-sm btn-outline-info margin-r margin-t">delete topic</button></div>
+          <div *ngIf="this.logged && this.isAdmin != null"><button (click)="deleteCommentary(commentary.id)" class="btn btn-sm btn-outline-info margin-r margin-t">Delete comment</button></div>
         </td>
         <td class="post-col d-lg-flex justify-content-lg-between">
           <div><span class="font-weight-bold"><h6>Subject:</h6></span> Forum post title with a complex and long question.</div>

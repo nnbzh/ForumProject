@@ -16,7 +16,10 @@ import { from } from 'rxjs';
   @Input() topic: Topic;
   answer: Comment
   logged;
+  isAdmin;
   commentDescription = '';
+  ngModuleName: string;
+  title: string;
   constructor(
     private route: ActivatedRoute,
     private topicService: TopicService,
@@ -25,6 +28,7 @@ import { from } from 'rxjs';
   ngOnInit(): void {
     this.getTopic();
     this.logged = localStorage.getItem('token');
+    this.isAdmin = localStorage.getItem('isAdmin');
   }
 
   getTopic() {
@@ -53,6 +57,7 @@ import { from } from 'rxjs';
     });
   }
 
+
   // http --------------------------------------------------------------------------->
 
   goBack(): void {
@@ -61,7 +66,9 @@ import { from } from 'rxjs';
 
   // TODO: update later
   save(): void {
-    this.topicService.updateHero(this.topic)
-      .subscribe(() => this.goBack());
+    this.topic.title=this.title;
+    this.topicService.updateTopic(this.topic)
+      .subscribe(topic => this.topic = topic);
+      window.location.reload();
   }
 }

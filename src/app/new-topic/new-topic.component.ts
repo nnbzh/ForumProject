@@ -49,6 +49,7 @@ export class NewTopicComponent implements OnInit {
         (data:Topic) => console.log(data);
         (error: any) => console.log(error);
       })
+      this.goBack();
   }
 
 
