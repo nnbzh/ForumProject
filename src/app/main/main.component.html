@@ -20,9 +20,6 @@
         <tbody *ngFor = "let discussion of category.discussions">
           <tr>
             <td>
-              <label *ngIf = "this.isAdmin != null && this.logged">
-                <input [(ngModel)]="discussion.name" placeholder="Name"/>
-              </label>
               <h3 class="h5 mb-0"><a routerLink="/category/{{category.id}}/forum/{{discussion.id}}" class="text-uppercase">{{discussion.name}}</a></h3>
               <p class="mb-0">{{discussion.description}}</p>
             </td>

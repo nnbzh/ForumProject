@@ -16,6 +16,7 @@ import { from } from 'rxjs';
   @Input() topic: Topic;
   answer: Comment
   logged;
+  isAdmin;
   commentDescription = '';
   ngModuleName: string;
   title: string;
@@ -27,6 +28,7 @@ import { from } from 'rxjs';
   ngOnInit(): void {
     this.getTopic();
     this.logged = localStorage.getItem('token');
+    this.isAdmin = localStorage.getItem('isAdmin');
   }
 
   getTopic() {
@@ -67,5 +69,6 @@ import { from } from 'rxjs';
     this.topic.title=this.title;
     this.topicService.updateTopic(this.topic)
       .subscribe(topic => this.topic = topic);
+      window.location.reload();
   }
 }
