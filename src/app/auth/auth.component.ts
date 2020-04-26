@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup , FormBuilder , FormControl  , Validators } from '@angular/forms';
 import {User} from '../models/user';
 import { Location} from '@angular/common';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-auth',
@@ -11,35 +12,48 @@ import { Location} from '@angular/common';
 export class AuthComponent implements OnInit {
   @Input() user: User;
 
-  public login = '';
+  public username = '';
   public password = '';
   public confirm = '';
-  public name = '';
   public email = '';
-  constructor(private location: Location) { }
+  constructor(private location: Location,
+              private userService: UserService) { }
 
   ngOnInit(): void {
   }
 
   clear() {
-    this.login = '';
+    this.email = '';
+    this.username = '';
     this.password = '';
     this.confirm = '';
-    this.name = '';
-    this.email = '';
   }
   goBack(): void {
     this.location.back();
   }
   signup() {
-    if (!this.login || !this.password || !this.confirm) {
+    if (!this.username || !this.password || !this.confirm) {
       alert('Please, write your login and password!');
       this.clear();
     } else if (this.password !== this.confirm) {
       alert('Passwords do not match. Try again, please!');
       this.clear();
     } else {
-      alert('You were successfully logged in. Now log in our system.');
+      this.userService.signup(this.username, this.email, this.password).subscribe(res => {
+        this.email = '';
+        this.username = '';
+        this.password = '';
+        this.confirm = '';
+        // alert('Signed up in successfully!');
+        this.GoBackWithRefresh();
+      });
+    }
+  }
+  GoBackWithRefresh() {
+    if ('referrer' in document) {
+      location.replace(document.referrer);
+    } else {
+      window.history.back();
     }
   }
 }

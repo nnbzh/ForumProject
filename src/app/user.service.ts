@@ -24,7 +24,15 @@ export class UserService {
     return this.http.post('http://localhost:8000/api/login/', {
       username: username,
       password: password
-    }); 
+    });
+  }
+
+  signup(username, email, password): Observable<any> {
+    return this.http.post('http://localhost:8000/api/signup/', {
+      username: username,
+      email: email,
+      password: password
+    });
   }
 
   /** GET hero by id. Will 404 if id not found */

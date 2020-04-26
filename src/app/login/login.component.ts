@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   username = '';
   password = '';
   constructor(private location: Location,
-    private userService: UserService) { }
+              private userService: UserService) { }
 
   ngOnInit(): void {
 
@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('isAdmin', this.username);
       } else if (this.username != '') {
         localStorage.setItem('username', this.username);
-      }  
+      }
       this.username = '';
       this.password = '';
       // alert('Logged in successfully!');
