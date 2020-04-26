@@ -14,7 +14,7 @@ import { Discussion } from '../models/discussion';
 })
 export class ForumComponent implements OnInit {
   discussion: Discussion;
-  
+
   limit = 3;
   offset = 0;
   allTopics;
@@ -22,7 +22,7 @@ export class ForumComponent implements OnInit {
   category_id: string;
   discussion_id: string;
   page: number;
- 
+
   discussions: Discussion[];
   constructor(private topicService: TopicService,
               private route: ActivatedRoute,
@@ -34,9 +34,9 @@ export class ForumComponent implements OnInit {
     this.getTopics();
     this.category_id= this.route.snapshot.paramMap.get('category_id');
     this.discussion_id= this.route.snapshot.paramMap.get('id');
-    
+
   }
-  
+
   getTopics() {
     const id = +this.route.snapshot.paramMap.get('id');
     this.topicService.getTopics(id).subscribe(topics => this.topics = topics);
@@ -44,7 +44,7 @@ export class ForumComponent implements OnInit {
 
   toDetail(){
     const category_id = +this.route.snapshot.paramMap.get('category_id');
-    
+
   }
 
   // ------------------------------------------------------------->Pagination, etc
@@ -66,6 +66,12 @@ export class ForumComponent implements OnInit {
     console.log(page);
   }
 
+  deleteTopic(id) {
+    this.topicService.deleteTopic(id).subscribe(res => {
+      this.getTopics();
+    });
+  }
+
   // onChangeSortDirection(orderValue) {
   //   const id = +this.route.snapshot.paramMap.get('id');
   //   if (orderValue === 'asc') {
@@ -76,11 +82,11 @@ export class ForumComponent implements OnInit {
   //     .subscribe(topics => this.topics = topics.sort());
   //   }
   // }
-  
+
   incrViewCount(id) {
     this.topicService.incrViewCount(id);
-    
-    
+
+
   }
   goBack(): void {
     this.location.back();

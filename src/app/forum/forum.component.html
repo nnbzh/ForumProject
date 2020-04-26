@@ -22,12 +22,12 @@
             <h3 class="h6">
               <span class="badge badge-primary margin-r" *ngIf="topic.unread != 0">{{ topic.unread }} unread</span>
               <a routerLink="/category/{{this.category_id}}/forum/{{this.discussion_id}}/topic-detail/{{topic.id}}" (click)="this.incrViewCount(topic.id)">{{ topic.title }}  </a>
-              <label> 
-                <input [(ngModel)]="topic.title" placeholder="Title"/> 
+              <label>
+                <input [(ngModel)]="topic.title" placeholder="Title"/>
               </label>
             </h3>
 
-            <div class="small">Go to page: <a href="#0">1</a>, <a href="#0">2</a>, <a href="#0">3</a> … <a href="#0">7</a>, <a href="#0">8</a>, <a href="#0">9</a></div>
+            <div><button (click)="deleteTopic(topic.id)" class="btn btn-sm btn-outline-info margin-r margin-t">delete topic</button></div>
           </td>
           <td>
             <div>by <a href="#">{{ topic.author }}</a></div>

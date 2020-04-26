@@ -11,7 +11,7 @@ import { TopicService } from '../services/topic.service';
   styleUrls: ['./new-topic.component.css']
 })
 export class NewTopicComponent implements OnInit {
-  
+
   private topic: Topic = null;
   public newTopic = '';
   public newComment = '';
@@ -30,31 +30,30 @@ export class NewTopicComponent implements OnInit {
   }
 
   addTopic() {
-    let today = new Date() 
-    let id =+ this.route.snapshot.paramMap.get("id")
-    let description = this.newComment
-    let title = this.newTopic
-    let unread = 0
-    let views = 0
-    let replies = 0
-    let date = "2020-04-23"
-    let last_date = "2020-04-23"
-    let discussion_id = id;
-    let last_author = "admin"
-    let author = "admin"
-    const some = {title, description, unread, views, replies, date, last_date, author, last_author, discussion_id} as Topic
-    console.log(some) 
-    this.topicService.addTopic(some).subscribe(res =>
-      {
-        (data:Topic) => console.log(data);
-        (error: any) => console.log(error);        
-      })  
+    const today = new Date();
+    const id = + this.route.snapshot.paramMap.get('id');
+    const description = this.newComment;
+    const title = this.newTopic;
+    const unread = 0;
+    const views = 0;
+    const replies = 0;
+    const date = '2020-04-23';
+    const last_date = '2020-04-23';
+    const discussion_id = id;
+    const last_author = 'admin';
+    const author = 'admin';
+    const some = {title, description, unread, views, replies, date, last_date, author, last_author, discussion_id} as Topic;
+    console.log(some);
+    this.topicService.addTopic(some).subscribe(res => {
+        (data: Topic) => console.log(data);
+        (error: any) => console.log(error);
+      });
   }
-  
-  
-  check():boolean {
-    if (!this.newComment || !this.newTopic) return false;
-    else return true;
+
+
+  check(): boolean {
+    if (!this.newComment || !this.newTopic) { return false; }
+    return true;
   }
 
   goBack(): void {

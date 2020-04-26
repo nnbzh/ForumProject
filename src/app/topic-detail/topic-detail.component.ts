@@ -10,9 +10,9 @@ import { from } from 'rxjs';
 @Component({
   selector: 'app-topic-detail',
   templateUrl: './topic-detail.component.html',
-  styleUrls: ['./topic-detail.component.css']
-})
-export class TopicDetailComponent implements OnInit {
+    styleUrls: ['./topic-detail.component.css']
+  })
+  export class TopicDetailComponent implements OnInit {
   @Input() topic: Topic;
   answer: Comment
   commentDescription = '';
@@ -43,7 +43,13 @@ export class TopicDetailComponent implements OnInit {
       this.commentDescription = '';
       window.location.reload();
     }
-    )
+    );
+  }
+
+  deleteCommentary(id) {
+    this.topicService.deleteCommentary(id).subscribe(res => {
+      this.getTopic();
+    });
   }
 
   // http --------------------------------------------------------------------------->

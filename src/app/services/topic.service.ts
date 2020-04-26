@@ -22,6 +22,14 @@ export class TopicService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
+  deleteTopic(id): Observable<any> {
+    return this.http.delete(`${this.BASE_URL}/api/topics/${id}/`);
+  }
+
+  deleteCommentary(id): Observable<any> {
+    return this.http.delete(`${this.BASE_URL}/api/comments/${id}/`);
+  }
+
   getTopics(id: number): Observable<Topic[]> {
     const url = `${this.BASE_URL}/api/discussions/${id}/topics/`;
     return this.http.get<Topic[]>(url);
@@ -41,12 +49,12 @@ export class TopicService {
     const url = `${this.BASE_URL}/api/topics/`;
     return this.http.post<Topic>(url, topic, this.httpOptions);
   }
-  
+
   login(username, password): Observable<any> {
     return this.http.post('http://localhost:8000/api/login/', {
       username: username,
       password: password
-    }); 
+    });
   }
 
   addComment(comment: Comment, topic_id: number): Observable<Comment> {
