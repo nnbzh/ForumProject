@@ -29,6 +29,11 @@ export class LoginComponent implements OnInit {
   login() {
     this.userService.login(this.username, this.password).subscribe(res => {
       localStorage.setItem('token', res.token);
+      if (this.username == 'admin') {
+        localStorage.setItem('isAdmin', this.username);
+      } else if (this.username != '') {
+        localStorage.setItem('username', this.username);
+      }  
       this.username = '';
       this.password = '';
       // alert('Logged in successfully!');

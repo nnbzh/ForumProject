@@ -70,9 +70,17 @@
 </div>
 </div>
 
+<div ></div>
+
+
+  <div *ngIf = "this.logged!; else noComments" class="text-center">
   <div class="form-group mb-3">
     <label for="comment">Reply to this post:</label>
     <textarea class="form-control" [(ngModel)]="commentDescription" id="comment" rows="10" placeholder="Write your comment here." required="" ></textarea>
   </div>
   <button type="submit" class="btn btn-primary mr-1" (click)="addComment()">Reply</button>
+</div>
 
+<ng-template #noComments>
+  <div class="text-center"><b>You need to <a routerLink="/login" href="">sign in</a> to reply</b></div>
+</ng-template>

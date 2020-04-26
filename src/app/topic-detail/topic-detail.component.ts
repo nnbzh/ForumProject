@@ -15,6 +15,7 @@ import { from } from 'rxjs';
   export class TopicDetailComponent implements OnInit {
   @Input() topic: Topic;
   answer: Comment
+  logged;
   commentDescription = '';
   constructor(
     private route: ActivatedRoute,
@@ -23,6 +24,7 @@ import { from } from 'rxjs';
 
   ngOnInit(): void {
     this.getTopic();
+    this.logged = localStorage.getItem('token');
   }
 
   getTopic() {
@@ -33,9 +35,8 @@ import { from } from 'rxjs';
   addComment() {
     let today = new Date();
     let date = today.toISOString().slice(0,10)
-    let date1 = "2020-04-23";
     let topic_id = +this.route.snapshot.paramMap.get('id')
-    let author = 'Ilya'
+    let author = localStorage.getItem('username');
     let content = this.commentDescription
     const newComment = {content,author, date, topic_id} as Comment
     console.log(newComment)

@@ -12,11 +12,16 @@ import { CategoryService } from '../services/category.service';
 })
 export class MainComponent implements OnInit {
   categories: Category[] = [];
+  isAdmin;
+  logged;
 
   constructor(private categoryService: CategoryService,
               private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.logged = localStorage.getItem('token')
+    this.isAdmin = localStorage.getItem('isAdmin')
+    console.log(this.isAdmin)
     this.getCategories();
   }
   getCategories() {
