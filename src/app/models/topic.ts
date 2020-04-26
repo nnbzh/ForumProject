@@ -13,7 +13,7 @@ export interface Topic {
   discussion_id?: number;
   comments?: Comment[];
 }
-
+ 
 export interface Comment {
   id: number;
   content: string;

@@ -22,14 +22,19 @@ export class TopicService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  getTopics(id: number): Observable<Discussion> {
+  getTopics(id: number): Observable<Topic[]> {
     const url = `${this.BASE_URL}/api/discussions/${id}/topics/`;
-    return this.http.get<Discussion>(url);
+    return this.http.get<Topic[]>(url);
   }
 
   getTopic(id: number): Observable<Topic> {
     const url = `${this.BASE_URL}/api/topics/${id}/`;
     return this.http.get<Topic>(url);
+  }
+
+  getTopicsByPage(id: number, page: number): Observable<Topic[]> {
+    const url = `${this.BASE_URL}/api/discussions/${id}/topics/?page=${page}`;
+    return this.http.get<Topic[]>(url);
   }
 
   addTopic(topic: Topic): Observable<Topic> {

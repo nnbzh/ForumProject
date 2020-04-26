@@ -19,7 +19,10 @@ export class ForumComponent implements OnInit {
   offset = 0;
   allTopics;
   topics: Topic[];
-
+  category_id: string;
+  discussion_id: string;
+  page: number;
+ 
   discussions: Discussion[];
   constructor(private topicService: TopicService,
               private route: ActivatedRoute,
@@ -27,12 +30,21 @@ export class ForumComponent implements OnInit {
   ngOnInit(): void {
     this.limit = 3;
     this.offset = 0;
+    this.page = 2;
     this.getTopics();
+    this.category_id= this.route.snapshot.paramMap.get('category_id');
+    this.discussion_id= this.route.snapshot.paramMap.get('id');
+    
   }
   
   getTopics() {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.topicService.getTopics(id).subscribe(discussion => this.discussion = discussion);
+    this.topicService.getTopics(id).subscribe(topics => this.topics = topics);
+  }
+
+  toDetail(){
+    const category_id = +this.route.snapshot.paramMap.get('category_id');
+    
   }
 
   // ------------------------------------------------------------->Pagination, etc
@@ -40,14 +52,18 @@ export class ForumComponent implements OnInit {
     this.topics = this.allTopics.slice(this.offset, this.offset + this.limit);
   }
 
-  next() {
-    this.offset = Math.min(this.offset + this.limit, this.allTopics.length);
-    this.paginate();
+  next(page: number){
+    this.page= page +1;
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.topicService.getTopicsByPage(id, page).subscribe(topics => this.topics = topics);
+    console.log(page);
   }
 
-  prev() {
-    this.offset = Math.max(0, this.offset - this.limit);
-    this.paginate();
+  prev(page: number) {
+    this.page = page-1;
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.topicService.getTopicsByPage(id, page).subscribe(topics => this.topics = topics);
+    console.log(page);
   }
 
   // onChangeSortDirection(orderValue) {
@@ -63,6 +79,8 @@ export class ForumComponent implements OnInit {
   
   incrViewCount(id) {
     this.topicService.incrViewCount(id);
+    
+    
   }
   goBack(): void {
     this.location.back();
