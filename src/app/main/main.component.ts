@@ -23,4 +23,13 @@ export class MainComponent implements OnInit {
     this.categoryService.getCategories()
       .subscribe(categories => {this.categories = categories});
   }
+
+  getForumsCount():number {
+    let cnt = 0;
+    this.categories.forEach(element => {
+      cnt =element.discussions.length + cnt; 
+    });
+    return cnt;
+  }
+
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Location} from '@angular/common';
 import { UserService } from '../user.service';
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-login',

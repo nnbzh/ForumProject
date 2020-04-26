@@ -12,7 +12,8 @@ import { NewTopicComponent } from './new-topic/new-topic.component';
 import { TopicDetailComponent } from './topic-detail/topic-detail.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // <-- NgModel lives here
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import {AuthInterceptor} from './auth.interceptor';
 
 import { CategoryPageComponent } from './category-page/category-page.component';
 import {AuthComponent} from './auth/auth.component';
@@ -40,7 +41,13 @@ import { TestComponent } from './test/test.component';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

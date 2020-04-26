@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Topic } from '../models/topic';
+import { Topic, Comment } from '../models/topic';
 import { TOPICS } from '../database/topics-list';
 import { Observable, of } from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
@@ -40,6 +40,18 @@ export class TopicService {
   addTopic(topic: Topic): Observable<Topic> {
     const url = `${this.BASE_URL}/api/topics/`;
     return this.http.post<Topic>(url, topic, this.httpOptions);
+  }
+  
+  login(username, password): Observable<any> {
+    return this.http.post('http://localhost:8000/api/login/', {
+      username: username,
+      password: password
+    }); 
+  }
+
+  addComment(comment: Comment, topic_id: number): Observable<Comment> {
+    const url = `${this.BASE_URL}/api/topics/${topic_id}/`;
+    return this.http.post<Comment>(url, comment, this.httpOptions)
   }
 
   incrViewCount(id): void {

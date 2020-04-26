@@ -1,1 +1,10 @@
-{{discussion}}
+
+          <div class="form-group">
+            <label for="topic">Topic:</label>
+            <input type="text" class="form-control" id="topic" [(ngModel)]="title" placeholder="Give your topic a title." required="">
+          </div>
+          <div class="form-group">
+            <label for="comment">Comment:</label>
+            <textarea class="form-control" id="comment" rows="10" [(ngModel)]="description" placeholder="Write your comment here." required=""></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary mr-1">Create topic</button>
