@@ -41,7 +41,7 @@ export class NewTopicComponent implements OnInit {
     let last_date = "2020-04-23"
     let discussion_id = id;
     let last_author = "admin"
-    let author = "admin"
+    let author = localStorage.getItem('username');
     const some = {title, description, unread, views, replies, date, last_date, author, last_author, discussion_id} as Topic
     console.log(some) 
     this.topicService.addTopic(some).subscribe(res =>

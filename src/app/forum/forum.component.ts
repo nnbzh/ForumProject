@@ -13,6 +13,9 @@ import { Discussion } from '../models/discussion';
   styleUrls: ['./forum.component.css']
 })
 export class ForumComponent implements OnInit {
+  authUser;
+  isAdmin;
+  logged;
   discussion: Discussion;
   
   limit = 3;
@@ -34,7 +37,9 @@ export class ForumComponent implements OnInit {
     this.getTopics();
     this.category_id= this.route.snapshot.paramMap.get('category_id');
     this.discussion_id= this.route.snapshot.paramMap.get('id');
-    
+    this.isAdmin = localStorage.getItem('isAdmin');
+    this.logged = localStorage.getItem('token');
+    this.authUser = localStorage.getItem('username');
   }
   
   getTopics() {
